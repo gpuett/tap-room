@@ -1,15 +1,34 @@
 <div class="container">
   <div style="text-align:center">
-    <h1>Welcome to {{title}}!</h1>
+    <h1>LoveCraft</h1>
+    <h3>Welcome to {{title}}!</h3>
   </div>
-  <div *ngFor="let keg of kegs">
-    <div class="keg-display">
-      <h1>Price: ${{keg.price}}</h1>
-      <h2>Name: {{keg.name}}</h2>
-      <p>{{keg.brand}}</p>
-      <p>{{keg.alcoholContent}}%</p>
-      <p>Pints Remaining: {{keg.pints}}</p>
-      <button (click)="keg.sellPint()" class="btn btn-info">Sell Pint</button>
+  <div class="row">
+    <div class="keg-display" *ngFor="let keg of kegs">
+      <div class="row">
+        <div class="col col-md">
+          <h1>Price: ${{keg.price}}</h1>
+          <h2>Name: {{keg.name}}</h2>
+          <img src="{{keg.imgString}}">
+        </div>
+        <div class="col col-md">
+          <p>{{keg.brand}}</p>
+          <p>{{keg.alcoholContent}}%</p>
+          <p>Pints Remaining: {{keg.pints}}</p>
+          <button (click)="keg.sellPint()" class="btn btn-info">Sell Pint</button><br>
+          <button (click)="displayEditForm(keg)"  class="edit btn btn-danger">Edit</button>
+        </div>
+      </div>
+    </div>
+    <div class="col col-md">
+      <div *ngIf="selectedKeg">
+        <input type="text" class="form-control" [(ngModel)]="price" placeholder="Price">
+        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name">
+        <input type="text" class="form-control" [(ngModel)]="brand" placeholder="Brand">
+        <input type="text" class="form-control" [(ngModel)]="alcoholContent" placeholder="ABV">
+        <input type="text" class="form-control" [(ngModel)]="imgString" placeholder="Image">
+        <button type="button" class="btn btn-danger" (click)="finishedEdit()">Submit</button>
+      </div>
     </div>
   </div>
 </div>

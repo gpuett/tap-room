@@ -10,11 +10,20 @@ import { AddKegComponent } from './add-keg/add-keg.component';
 export class AppComponent {
   title = 'Garnett & William Taps';
   kegs: Keg[] = [
-    new Keg(5, "Huntsman IPA", "Yharnam Brewing", 6.9),
-    new Keg(4, "Cainhurst Cider", "Silver Lady Orchard", 5.2),
-    new Keg(5, "Celestial Saisson", "Iosefka's Clinic", 4.8),
-    new Keg(6, "Mad One IIPA", "Hemwick Hops", 8)
+    new Keg(5, "Huntsman IPA", "Yharnam Brewing", 6.9, './../assets/huntsman.jpg'),
+    new Keg(4, "Cainhurst Cider", "Silver Lady Orchard", 5.2, './../assets/silver_lady.jpg'),
+    new Keg(5, "Celestial Saisson", "Iosefka's Clinic", 4.8, './../assets/celestial.jpg'),
+    new Keg(6, "Mad One IIPA", "Hemwick Hops", 8, './../assets/madone.jpg')
   ];
+  selectedKeg = null;
+  editForm = false;
+  displayEditForm(clickedKeg) {
+    this.editForm = true;
+    this.selectedKeg = clickedKeg;
+  }
 
-  
+  finishedEdit(){
+    this.selectedKeg = null;
+  }
+
 }
