@@ -18,16 +18,17 @@
           <button (click)="keg.sellPint()" class="btn btn-info">Sell Pint</button><br>
           <button (click)="displayEditForm(keg)"  class="edit btn btn-danger">Edit</button>
         </div>
-      </div>
-    </div>
-    <div class="col col-md">
-      <div *ngIf="selectedKeg">
-        <input type="text" class="form-control" [(ngModel)]="price" placeholder="Price">
-        <input type="text" class="form-control" [(ngModel)]="name" placeholder="Name">
-        <input type="text" class="form-control" [(ngModel)]="brand" placeholder="Brand">
-        <input type="text" class="form-control" [(ngModel)]="alcoholContent" placeholder="ABV">
-        <input type="text" class="form-control" [(ngModel)]="imgString" placeholder="Image">
-        <button type="button" class="btn btn-danger" (click)="finishedEdit()">Submit</button>
+        <div class="col col-md">
+          <div *ngIf="selectedKeg === keg">
+            <input type="text" class="form-control" [(ngModel)]="keg.price" placeholder="Price">
+            <input type="text" class="form-control" [(ngModel)]="keg.name" placeholder="Name">
+            <input type="text" class="form-control" [(ngModel)]="keg.brand" placeholder="Brand">
+            <input type="text" class="form-control" [(ngModel)]="keg.alcoholContent" placeholder="ABV">
+            <input type="text" class="form-control" [(ngModel)]="keg.imgString" placeholder="Image">
+            <button type="button" class="btn btn-danger" (click)="finishedEdit()">Submit</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
