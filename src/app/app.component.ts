@@ -17,6 +17,17 @@ export class AppComponent {
   ];
   selectedKeg = null;
   editForm = false;
+
+  inventoryColor(keg) {
+    if (keg.pints >= 62) {
+      return "high";
+    } else if (keg.pints >= 31) {
+      return "med";
+    } else {
+      return "low";
+    }
+  }
+
   displayEditForm(clickedKeg) {
     this.editForm = true;
     this.selectedKeg = clickedKeg;

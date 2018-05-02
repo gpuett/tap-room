@@ -10,3 +10,19 @@ img {
 .col {
   min-width: 250px;
 }
+.btn {
+  margin: 10px;
+}
+input{
+  width: 90%;
+  margin: 3px;
+}
+.high {
+  background: lightgreen;
+}
+.med {
+  background: lightyellow;
+}
+.low {
+  background: orchid;
+}
