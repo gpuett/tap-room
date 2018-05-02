@@ -34,4 +34,13 @@
       </div>
     </div>
   </div>
+  <button *ngIf="!addKeg" type="button" class="btn btn-warning" (click)="displayAddKeg()">Add Keg</button>
+  <div *ngIf="addKeg">
+    <input type="number" class="form-control" [(ngModel)]="keg.price" placeholder="Price">
+    <input type="text" class="form-control" [(ngModel)]="keg.name" placeholder="Name">
+    <input type="text" class="form-control" [(ngModel)]="keg.brand" placeholder="Brand">
+    <input type="number" class="form-control" [(ngModel)]="keg.alcoholContent" placeholder="ABV">
+    <input type="text" class="form-control" [(ngModel)]="keg.imgString" placeholder="Image">
+    <button type="button" class="btn btn-primary"(click)="submitKeg(keg.price, keg.name, keg.brand, keg.alcoholContent, keg.imgString)">Submit Keg</button>
+  </div>
 </div>

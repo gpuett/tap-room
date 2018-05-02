@@ -37,4 +37,13 @@ export class AppComponent {
     this.selectedKeg = null;
   }
 
+  addKeg = false;
+  displayAddKeg() {
+    this.addKeg = true;
+  }
+  submitKeg(price, name, brand, alcoholContent, imgString) {
+    let newKeg = new Keg(price, name, brand, alcoholContent, imgString);
+    this.kegs.push(newKeg);
+    this.addKeg = false;
+  }
 }
