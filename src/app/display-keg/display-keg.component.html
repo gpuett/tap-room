@@ -1,4 +1,9 @@
-<div class="keg-display" *ngFor="let keg of childKegs">
+<select (change)="onChange($event.target.value)">
+  <option value="allTaps" selected="selected">All Taps</option>
+  <option value="highAbvTaps">ABV Over 6%</option>
+</select>
+
+<div class="keg-display" *ngFor="let keg of childKegs | percentage:filterByPercentage">
   <div [class]="inventoryColor(keg)">
     <div class="row">
       <div class="col col-md-4">

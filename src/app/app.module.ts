@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { AddKegComponent } from './add-keg/add-keg.component';
 import { DisplayKegComponent } from './display-keg/display-keg.component';
+import { PercentagePipe } from './percentage.pipe';
 
 
 
@@ -13,6 +14,7 @@ import { DisplayKegComponent } from './display-keg/display-keg.component';
     AppComponent,
     AddKegComponent,
     DisplayKegComponent,
+    PercentagePipe
 
   ],
   imports: [

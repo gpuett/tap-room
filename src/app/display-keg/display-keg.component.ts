@@ -27,6 +27,12 @@ export class DisplayKegComponent {
     this.selectedKeg = null;
   }
 
+  filterByPercentage: string = "allTaps";
+
+  onChange(optionFromMenu) {
+    this.filterByPercentage = optionFromMenu;
+  }
+
   inventoryColor(keg) {
     if (keg.pints >= 62) {
       return "high";
