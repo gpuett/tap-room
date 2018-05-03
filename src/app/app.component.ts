@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Keg } from './models/keg.model';
 import { AddKegComponent } from './add-keg/add-keg.component';
+import { DisplayKegComponent } from './display-keg/display-keg.component';
 
 @Component({
   selector: 'app-root',
@@ -9,33 +10,17 @@ import { AddKegComponent } from './add-keg/add-keg.component';
 })
 export class AppComponent {
   title = 'Garnett & William Taps';
-  kegs: Keg[] = [
+
+
+
+  masterKegs: Keg[] = [
     new Keg(5, "Huntsman IPA", "Yharnam Brewing", 6.9, './../assets/huntsman.jpg'),
     new Keg(4, "Cainhurst Cider", "Silver Lady Orchard", 5.2, './../assets/silver_lady.jpg'),
     new Keg(5, "Celestial Saisson", "Iosefka's Clinic", 4.8, './../assets/celestial.jpg'),
     new Keg(6, "Mad One IIPA", "Hemwick Hops", 8, './../assets/madone.jpg')
   ];
-  selectedKeg = null;
-  editForm = false;
 
-  inventoryColor(keg) {
-    if (keg.pints >= 62) {
-      return "high";
-    } else if (keg.pints >= 31) {
-      return "med";
-    } else {
-      return "low";
-    }
-  }
 
-  displayEditForm(clickedKeg) {
-    this.editForm = true;
-    this.selectedKeg = clickedKeg;
-  }
-
-  finishedEdit(){
-    this.selectedKeg = null;
-  }
 
   addKeg = false;
   displayAddKeg() {
@@ -43,7 +28,7 @@ export class AppComponent {
   }
   submitKeg(price, name, brand, alcoholContent, imgString) {
     let newKeg = new Keg(price, name, brand, alcoholContent, imgString);
-    this.kegs.push(newKeg);
+    this.masterKegs.push(newKeg);
     this.addKeg = false;
   }
 }

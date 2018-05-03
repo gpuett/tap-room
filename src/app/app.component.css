@@ -1,35 +1,4 @@
-.keg-display {
-  text-align: center;
-  border: 1px solid black;
-}
-img {
-  border-radius: 15px;
-  padding: 10px;
-  width: 100%;
-}
-.col {
-  min-width: 250px;
-  padding-top: 5px;
-}
-.btn {
-  margin: 10px;
-}
-input{
-  width: 90%;
-  margin: 3px;
-}
-.high {
-  background: lightgreen;
-}
-.med {
-  background: lightyellow;
-}
-.low {
-  background: orchid;
-}
-.row {
-  margin: auto;
-}
+
 .container {
   text-align: center;
 }

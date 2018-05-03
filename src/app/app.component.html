@@ -1,35 +1,7 @@
 <div class="container">
   <h1>LoveCraft</h1>
   <h3>Welcome to {{title}}!</h3>
-  <div class="keg-display" *ngFor="let keg of kegs">
-    <div [class]="inventoryColor(keg)">
-      <div class="row">
-        <div class="col col-md-4">
-          <h2>Price: ${{keg.price}}</h2>
-          <h4>Name: {{keg.name}}</h4>
-          <img src="{{keg.imgString}}">
-        </div>
-        <div class="col col-md-4">
-          <h5>{{keg.brand}}</h5>
-          <p>{{keg.alcoholContent}}%</p>
-          <p>Pints Remaining: {{keg.pints}}</p>
-          <button (click)="keg.sellPint()" class="btn btn-info">Sell Pint</button><br>
-          <button *ngIf="!selectedKeg" (click)="displayEditForm(keg)"  class="edit btn btn-danger">Edit</button>
-        </div>
-        <div class="col col-md-4">
-          <div *ngIf="selectedKeg === keg">
-            <input type="text" class="form-control" [(ngModel)]="keg.price" placeholder="Price">
-            <input type="text" class="form-control" [(ngModel)]="keg.name" placeholder="Name">
-            <input type="text" class="form-control" [(ngModel)]="keg.brand" placeholder="Brand">
-            <input type="text" class="form-control" [(ngModel)]="keg.alcoholContent" placeholder="ABV">
-            <input type="text" class="form-control" [(ngModel)]="keg.pints" placeholder="Pints Remaining">
-            <input type="text" class="form-control" [(ngModel)]="keg.imgString" placeholder="Image">
-            <button type="button" class="btn btn-danger" (click)="finishedEdit()">Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-display-keg [childKegs]="masterKegs" (clickSender)="editKeg($event)"></app-display-keg>
   <button *ngIf="!addKeg" type="button" class="btn btn-warning" (click)="displayAddKeg()">Add Keg</button>
   <div *ngIf="addKeg">
     <input type="number" class="form-control" [(ngModel)]="inputPrice" placeholder="Price">
