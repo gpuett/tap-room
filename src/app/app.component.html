@@ -2,13 +2,9 @@
   <h1>LoveCraft</h1>
   <h3>Welcome to {{title}}!</h3>
   <app-display-keg [childKegs]="masterKegs" (clickSender)="editKeg($event)"></app-display-keg>
-  <button *ngIf="!addKeg" type="button" class="btn btn-warning" (click)="displayAddKeg()">Add Keg</button>
-  <div *ngIf="addKeg">
-    <input type="number" class="form-control" [(ngModel)]="inputPrice" placeholder="Price">
-    <input type="text" class="form-control" [(ngModel)]="inputName" placeholder="Name">
-    <input type="text" class="form-control" [(ngModel)]="inputBrand" placeholder="Brand">
-    <input type="number" class="form-control" [(ngModel)]="inputAlcoholContent" placeholder="ABV">
-    <input type="text" class="form-control" [(ngModel)]="inputImgString" placeholder="Image">
-    <button type="button" class="btn btn-primary" (click)="submitKeg(inputPrice, inputName, inputBrand, inputAlcoholContent, inputImgString)">Submit Keg</button>
+  <button *ngIf="!addKegButton" type="button" class="btn btn-warning" (click)="displayAddKeg()">Add Keg</button>
+  <div *ngIf="addKegButton">
+    <app-add-keg (sendKeg)="addKeg($event)"></app-add-keg>
   </div>
+
 </div>

@@ -1,3 +1,6 @@
-<p>
-  add-keg works!
-</p>
+<input type="number" class="form-control" #inputPrice placeholder="Price">
+<input type="text" class="form-control" #inputName placeholder="Name">
+<input type="text" class="form-control" #inputBrand placeholder="Brand">
+<input type="number" class="form-control" #inputAlcoholContent placeholder="ABV">
+<input type="text" class="form-control" #inputImgString placeholder="Image">
+<button type="button" class="btn btn-primary" (click)="submitKeg(inputPrice.value, inputName.value, inputBrand.value, inputAlcoholContent.value, inputImgString.value)">Submit Keg</button>

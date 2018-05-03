@@ -11,8 +11,6 @@ import { DisplayKegComponent } from './display-keg/display-keg.component';
 export class AppComponent {
   title = 'Garnett & William Taps';
 
-
-
   masterKegs: Keg[] = [
     new Keg(5, "Huntsman IPA", "Yharnam Brewing", 6.9, './../assets/huntsman.jpg'),
     new Keg(4, "Cainhurst Cider", "Silver Lady Orchard", 5.2, './../assets/silver_lady.jpg'),
@@ -20,15 +18,14 @@ export class AppComponent {
     new Keg(6, "Mad One IIPA", "Hemwick Hops", 8, './../assets/madone.jpg')
   ];
 
+  addKegButton = false;
 
-
-  addKeg = false;
   displayAddKeg() {
-    this.addKeg = true;
+    this.addKegButton = true;
   }
-  submitKeg(price, name, brand, alcoholContent, imgString) {
-    let newKeg = new Keg(price, name, brand, alcoholContent, imgString);
+
+  addKeg(newKeg: Keg) {
     this.masterKegs.push(newKeg);
-    this.addKeg = false;
+    this.addKegButton = false;
   }
 }
